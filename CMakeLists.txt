@@ -40,9 +40,9 @@ set(WITH_MCU OFF CACHE BOOL "Add the mCU type to the target file name." FORCE)
 # AVR and fuses needs to be set
 ##################################################################################
 set(AVR_MCU atmega328p)
-set(AVR_H_FUSE "")
-set(AVR_L_FUSE "")
-set(AVR_E_FUSE "")
+set(AVR_H_FUSE "D9")
+set(AVR_L_FUSE "6F")
+set(AVR_E_FUSE "FF")
 
 ##################################################################################
 # needs to be defined for AVR toolchain
