@@ -11,4 +11,12 @@ iss_switch-eeprom.hex
 iss_switch.elf
 iss_switch.hex
 iss_switch.map
+iss_switch-atmega328p-eeprom.hex
+iss_switch-atmega328p.elf
+iss_switch-atmega328p.hex
+iss_switch-atmega328p.map
+iss_switch-atmega8-eeprom.hex
+iss_switch-atmega8.elf
+iss_switch-atmega8.hex
+iss_switch-atmega8.map
 

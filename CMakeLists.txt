@@ -7,17 +7,25 @@
 # return. (I don't like beer much.)
 #
 # Matthias Kleemann
+#
+# Adapted and extended by Mykhailo Lytvyn 
 ##################################################################################
 
-##################################################################################
-# Sample CMakeLists.txt for a simple AVR project based on the toolchain
-##################################################################################
-project(ISS_switch C)
 cmake_minimum_required(VERSION 2.8)
+
+# Disable in-source build
+# this means you will not able to build project in the directory with source files
+#set(CMAKE_DISABLE_SOURCE_CHANGES ON)
+#set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
+
+project(ISS_switch C)
+
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Os -Wall -pedantic -Wextra -mmcu=atmega328p")
+# Compiler options: include debug symbols, optimize for size, be strict and display 
+# all warnings
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Os -Wall -pedantic -Wextra")
 
 ### TOOLCHAIN SETUP AREA #########################################################
 # Set any variables used in the toolchain prior project() call. In that
@@ -33,13 +41,13 @@ set(AVR_PROGRAMMER usbasp)
 set(AVR_UPLOAD_BAUDRATE 115200)
 set(AVR_UPLOADTOOL_OPTIONS "")
 
-set(WITH_MCU OFF)
-set(WITH_MCU OFF CACHE BOOL "Add the mCU type to the target file name." FORCE)
+#set(WITH_MCU OFF)
+#set(WITH_MCU OFF CACHE BOOL "Add the mCU type to the target file name." FORCE)
 
 ##################################################################################
 # AVR and fuses needs to be set
 ##################################################################################
-set(AVR_MCU atmega328p)
+set(AVR_MCU "atmega328p")
 set(AVR_H_FUSE "D9")
 set(AVR_L_FUSE "6F")
 set(AVR_E_FUSE "FF")
@@ -51,7 +59,7 @@ set(AVR_MCU_SPEED "1200000UL")
 
 ### END TOOLCHAIN SETUP AREA #####################################################
 
-find_package(Generic-AVR-GCC REQUIRED)
+find_package(Generic-AVR-GCC  REQUIRED)
 
 ##################################################################################
 # name your project
@@ -82,7 +90,6 @@ add_definitions("-std=gnu99")
 ##################################################################################
 set(ISS_SWITCH_SOURCES src/hal.h
                        src/main.c)
-
 
 add_avr_executable(
    iss_switch 
