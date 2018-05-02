@@ -5,3 +5,10 @@ cmake_install.cmake
 ./*.elf
 ./*.hex
 ./*.map
+Makefile
+CMakeFiles/*
+iss_switch-eeprom.hex
+iss_switch.elf
+iss_switch.hex
+iss_switch.map
+
