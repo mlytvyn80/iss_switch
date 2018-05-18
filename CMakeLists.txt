@@ -89,6 +89,8 @@ add_definitions("-std=gnu99")
 # add AVR executable - (<executable-name> <sources> <headers>)
 ##################################################################################
 set(ISS_SWITCH_SOURCES src/hal.h
+                       src/rc5.c
+                       src/timer.c
                        src/main.c)
 
 add_avr_executable(
