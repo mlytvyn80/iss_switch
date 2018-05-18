@@ -91,6 +91,7 @@ add_definitions("-std=gnu99")
 set(ISS_SWITCH_SOURCES src/hal.h
                        src/rc5.c
                        src/timer.c
+                       src/keyscan.c
                        src/main.c)
 
 add_avr_executable(
